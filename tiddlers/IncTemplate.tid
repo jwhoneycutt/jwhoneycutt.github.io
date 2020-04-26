@@ -1,0 +1,21 @@
+created: 20200103090059602
+creator: JWHoneycutt
+inc: no
+modified: 20200426024459271
+modifier: JWHoneycutt
+note: Word wrap needed on expanded items, and make edit buttons bigger
+requires: 
+tags: Inc Template
+task: word wrap needed
+title: IncTemplate
+type: text/vnd.tiddlywiki
+
+<$link to=<<currentTiddler>> >
+    <$transclude field="''caption''"> ''<$view field="title"/>'' 
+    </$transclude> 
+</$link> 
+<$checkbox field="inc" checked="yes" unchecked="no" default="no" /> 
+<$if value={{!!inc}} match=yes> 
+    <div class=shadowbox> <<{ '$(currentTiddler)$'>> </div>
+</$if>
+@@color:navy;font-family:butler;font-weight:normal;white-space: pre-line;<$transclude field="subtitle"><$transclude field="note"></$transclude></$transclude>@@<br>

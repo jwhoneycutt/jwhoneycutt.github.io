@@ -1,0 +1,265 @@
+color: Purple
+created: 20180525124905608
+creator: JWHoneycutt
+inc: no
+modified: 20200426042557319
+modifier: JWHoneycutt
+note: My important styles (works with shorthand)
+tags: Style Class JWH $:/tags/Stylesheet
+title: JWH Class
+type: text/vnd.tiddlywiki
+
+.125 {
+	font-size: 125%;
+}
+
+.75 {
+	font-size: 75%;
+}
+
+.abstract { 
+	border: 2px solid #e1e1e8; 
+	color: #888888; 
+	font-size: 90%; 
+	margin-left: 0; 
+	padding: 0.5em 0.7em; 
+}
+
+.arial { 
+	font-family: Arial; 
+	color: fuchsia; 
+	padding:5px; 
+	padding-left: 0.6em; 
+}
+
+.blackbackground {
+	background-color: black;
+}
+
+<!--
+.BM { 
+	border: 1px solid #e1e1e8;
+	border-left: 4px solid #ff8903;
+	border-right: 4px solid #e1e1e8;
+	border-radius: 10px; 
+	padding:5px; 
+	padding-left: 0.6em; 
+}
+-->
+
+.butler {
+	font-family: Butler;
+	font-size: 100%;
+}
+
+.cinzelbold {
+	font-family: cinzelbold; 
+	background-color: whitesmoke; 
+	color:navy;
+	font-size:100%;
+	padding: 0.5em; 
+}
+
+.city {
+	background-color: gold;
+	color: white;
+	padding: 10px;
+}
+
+.CR { 
+	border: 1px solid #e1e1e8;
+	border-left: 4px solid #088300;
+	border-right: 4px solid #e1e1e8;
+	border-radius: 10px; 
+	padding:5px; 
+	padding-left: 0.6em; 
+}
+
+<!--
+[[Daedra]]
+.Daedra { 
+    font-family: Daedra; 
+    font-size:100%; 
+    padding: 0.2em; 
+}
+-->
+
+.daedra {
+	font-family: Daedra;
+}
+
+.daedra200 {
+	font-family: Daedra;
+	font-size: 200%;
+}
+
+.def {
+	font-style: normal;
+	font-weight: bold;
+	color: navy;
+	padding:5px;
+	padding-left: 0.6em; 
+}
+
+.email {
+	font-style: normal;
+	font-weight: normal;
+	padding:5px;
+	padding-left: 0.6em; 
+	border:1px solid #999; 
+	border-radius: 10px;  
+	margin:0; 
+	padding:0.3em;
+	box-shadow: 0.3em 0.3em 0.6em rgba(0,0,0,0.5);
+	background: #f8f8ff;
+}
+
+.email:hover {
+	background: #f1f1ff;
+}
+
+.jwh {
+	font-family: JWHoneycutt; 
+	font-weight: normal; 
+	background-color: transparent; 
+	color:black;
+	padding: 0.5em; 
+}
+
+.jwh:hover {
+	font-weight: bold; 
+}
+
+.note {
+	border: 1px solid #e1e1e8;	
+	border-left: 4px solid #800000;
+	border-right: 4px solid #e1e1e8;	
+	border-radius: 10px;
+	padding:5px;
+	padding-left: 0.6em; 
+	mode: block;
+}
+
+.note:hover { background: #f1f1ff; }
+
+.old {
+	font-size: 50%;
+	font-style: normal;
+	font-weight: normal;
+	padding:5px;
+	padding-left: 0.6em; 
+	border:1px solid #999; 
+	border-radius: 10px;  
+	margin:0; 
+	padding:0.3em;
+	box-shadow: 0.3em 0.3em 0.6em rgba(0,0,0,0.5);
+	background: #f8f8ff;
+}
+
+.pigpen {
+	font-family: Pigpen; 
+	background-color: whitesmoke; 
+	color:maroon;
+	font-size:170%;
+	padding: 0.5em; 
+}
+
+.private {
+	background-color: transparent; 
+	color: transparent;
+}
+
+.pw {
+	background-color: whitesmoke; 
+	color: transparent;
+	border:1px solid #999; 
+	border-radius: 10px;  
+}
+
+.pw:hover {
+	background-color: gray; 
+	color: transparent;
+	border:1px solid #999; 
+	border-radius: 10px;  
+}
+
+.q {
+	/*Quote */
+	font-weight: bold;
+	color: navy;
+}
+
+.shadowbox {
+	border:1px solid #999; 
+	border-radius: 10px;  
+	margin:0; 
+	padding:0.3em;
+	box-shadow: 0.3em 0.3em 0.6em rgba(0,0,0,0.5);
+	background: #f8f8ff;
+	overflow: auto;
+}
+
+.shadowbox:hover {
+	box-shadow: 0.3em 0.3em 1.6em rgba(102,102,102,0.9);
+	transition: box-shadow 0.5s, background 0.5s;
+}
+
+.shadowbox.inset {
+	box-shadow: 0.3em 0.3em 0.6em rgba(0,0,0,0.5) inset; 
+	background: #f8f8f8;
+}
+
+.shadowbox.inset:hover {
+	box-shadow: 0.3em 0.3em 0.6em rgba(0,0,0,0.8) inset; 
+	background: #f8f8f8;
+}
+
+.sign {
+	font-family: sign; 
+	background-color: whitesmoke; 
+	color:maroon;
+	font-size:170%;
+	padding: 0.5em; 
+}
+
+.small {
+	font-size:70%;
+}
+
+.strong {
+	font-family: cinzelregular; 
+	color: maroon;
+	font-weight: bold;
+	font-size: 110%;
+}
+
+.task { 
+	border: 2px solid #e1e1e8; 
+	color: #888888; 
+	font-size: 90%; 
+	margin-left: 0; 
+	padding: 0.5em 0.7em; 
+}
+
+.title {
+	font-family: Fredericka the Great; 
+	font-size: 150%;
+	color: black;
+}
+
+.title:hover {
+	font-family: Fredericka the Great; 
+	font-size: 150%;
+	color: maroon;
+	background-color: #e6ffee
+}
+
+<!--
+When field:rank:species, split body into 2 columns
+
+<$list filter="[rank[species]]"> 
+[data-tiddler-title^="<$view field=title/>"] .tc-tiddler-body {
+    column-count: 2;
+}
+</$list> 
+-->

@@ -1,0 +1,21 @@
+created: 20200104205843934
+creator: JWHoneycutt
+modified: 20200426024532523
+modifier: JWHoneycutt
+note: Inc only if field:inc = "yes"
+requires: 
+tags: Trial Template
+task: word wrap needed
+title: IncTemplateClean
+type: text/vnd.tiddlywiki
+
+<$link to=<<currentTiddler>> >
+    <$transclude field="caption"> ''<$view field="title"/>'' 
+    </$transclude> 
+</$link> 
+
+<$checkbox field="inc" checked="yes" unchecked="no" default="no" /> 
+<$if value={{!!inc}} match=yes> 
+    <div class=shadowbox> <<{ '$(currentTiddler)$'>> </div>
+</$if>
+<br>

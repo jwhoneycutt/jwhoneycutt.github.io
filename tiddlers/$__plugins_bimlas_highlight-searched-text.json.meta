@@ -1,0 +1,12 @@
+author: bimlas
+core-version: >=5.1.18
+created: 20200426024421940
+dependents: 
+description: Highlight searched text
+list: README/README settings/SETTINGS
+modified: 20200426024421940
+plugin-type: plugin
+source: https://gitlab.com/bimlas/tw5-highlight-searched-text
+title: $:/plugins/bimlas/highlight-searched-text
+type: application/json
+version: 0.1.1
