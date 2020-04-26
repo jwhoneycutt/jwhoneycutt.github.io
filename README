@@ -1,0 +1,9 @@
+Attempting to use my (20 MB) master TW5.html file as a static website generator
+
+Tiddlers tagged "Public" are filtered and exported as an HTML file to:
+
+file:///Users/jwh/jwhPublicWiki/tiddlers/tiddlers.html (1.3 MB)
+
+Now, how do I get index.html (in personal GitHub repository) to point to: 
+
+file:///Users/jwh/jwhPublicWiki/tiddlywiki.info 
