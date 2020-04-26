@@ -1,0 +1,161 @@
+[
+    {
+        "created": "20200425154438980",
+        "creator": "JWHoneycutt",
+        "text": "!!1. Install the Node.js version of TiddlyWiki\n\n;Install Node.js on your laptop\n\n>.shadowbox \"\"\"This package has installed:\n\t•\tNode.js v12.16.2 to /usr/local/bin/node\n\t•\tnpm v6.14.4 to /usr/local/bin/npm\nMake sure that /usr/local/bin is in your $PATH.\"\"\"\n\n;Install TiddlyWiki\n\n>Node.js comes packaged with a nifty thing called npm which lets you very easily install new software on your laptop by just typing a couple of keywords. For this, we are going to use something called the “command line”—which is what you see in movies with hackers, with a bunch of text on a black screen. There are different ways to open the command line on different kinds of operating systems, so my advice is to just download [[Hyper]], which is the awesome free terminal I use myself. To install TiddlyWiki on your laptop, open Hyper, paste the following, and press enter: `npm install -g tiddlywiki`\n>`tiddlywiki --version`\n\n;Create your first wiki\n>Type or paste `tiddlywiki myfirstwiki --init server` and press enter. \n>`tiddlywiki jwhPublicWiki --init server`\n>This will initialise the server (“init server”) and create a new folder with everything you need for to run your first wiki (called “myfirstwiki” in the above command).\n\n;Start your wiki\n>Type or paste `tiddlywiki jwhPublicWiki --listen` to start your wiki. In the previous step you started the server, now you are actually listening to it, making your wiki live.\n>.note Serving on http://127.0.0.1:8080\n\n;Use your wiki\n>You can now go to `http://127.0.0.1:8080/` in your browser and you should see a brand new wiki. Great job! You have installed TiddlyWiki on your computer and you are now accessing your very own wiki, running locally on your laptop. I recommend adding http://127.0.0.1:8080/ to your browser’s bookmark bar for easy access in the future.\n\n",
+        "title": "1. Install the Node.js version of TiddlyWiki",
+        "modified": "20200426200153657",
+        "modifier": "JWHoneycutt",
+        "tags": "[[TW5 as website generator]] Public",
+        "inc": "no"
+    },
+    {
+        "created": "20200425164132053",
+        "creator": "JWHoneycutt",
+        "text": ";.jwh In terminal (or Hyper), type `./build.sh` or `tiddlywiki --build static`\n\n;.jwh In browser, `http://127.0.0.1:8080/` will show how it renders locally\n\n;.jwh Now I need Terminal (or Hyper) to automatically update my personal GitHub repository so that is publishes to the internet\n\n!!2. Export your TiddlyWiki as a static website\n\n:.shadowbox \"\"\"Option1: <br>From root folder of wiki, just type: `tiddlywiki --build static`<br><br>per Mat on Google Groups: \"You can use single file TW to generate static wikis too, which is much simpler:\"\nOpen advanced search, select the Filter tab\nType in `[list[$:/StoryList]] -$:/AdvancedSearch`\nClick the export button and select Static HTML\nSource: https://groups.google.com/forum/#!topic/tiddlywiki/jiI6PcPDHLU\n\"\"\"\n\n:.shadowbox Option2: \"\"\"\n\n\nper [[ALLeCunff]]: \n[[Here|https://tiddlywiki.com/static/Generating%2520Static%2520Sites%2520with%2520TiddlyWiki.html]] are the official instructions to export your TiddlyWiki notes as a static website. I’m going to walk you through them. Remember the command line? Let’s open Hyper again. Make sure you are in the myfirstwiki directory.\n\nFirst, paste this and press enter:\n`tiddlywiki --rendertiddlers [!is[system]] $:/core/templates/static.tiddler.html static text/plain`\nThen, paste this and press enter again:\n`tiddlywiki --rendertiddler $:/core/templates/static.template.html static.html text/plain`\nFinally, paste this and press enter one last time:\n`tiddlywiki --rendertiddler $:/core/templates/static.template.css static/static.css text/plain`\nThese basically render your dynamic TiddlyWiki into a static HTML + CSS website. Because it would be really annoying to have to do this every time you want to update your website, let’s make it easier.\n\nOpen your text editor (I use VS Code), and paste the following, which is a concatenation of the previous three commands (credits):\n\n`tiddlywiki --rendertiddlers [!is[system]] $:/core/templates/static.tiddler.html static text/plain --rendertiddler $:/core/templates/static.template.css static/static.css text/plain`\n\nThen save the file as build.sh inside the root folder of your wiki. If you have been following this tutorial from the beginning, that should be myfirstwiki. \n\nFrom now on, you’ll be able to just type `./build.sh` in Hyper to convert your dynamic TiddlyWiki into a static website.\n\n//Please note//: you may not have the right admin privileges to create the build.sh file. If that’s the case, the good news is you don’t need that file to use the TiddlyWiki static website generator. Just copy and paste the concatenated command starting with “tiddlywiki –rendertiddlers” into the command line, it’s the same but a bit more manual.\n\"\"\"\n\nNow, go to `myfirstwiki/output/static/` and double click on any HTML file to open it in your browser. Yep, that’s a fully fledged website for you with just a couple of commands. Now, let’s get this baby into the world.\n\n",
+        "modified": "20200426200154272",
+        "modifier": "JWHoneycutt",
+        "title": "2. Export your TiddlyWiki as a static website",
+        "tags": "[[TW5 as website generator]] Public",
+        "inc": "no"
+    },
+    {
+        "created": "20200425170612689",
+        "creator": "JWHoneycutt",
+        "text": ";.jwh My personal repository on GitHub `jwhoneycutt.github.io` automatically publishes to `https://jwhoneycutt.github.io/`\n\n!!3. Host your TiddlyWiki on GitHub\nYou have a static website, now you want to make it live.\n\n;Create an account on Github\n>Click on “sign up” on this page and fill the form. Write down your GitHub username somewhere, you will need it for the next step.\n\n>Create a new repository. Click on the “+” sign just next to your profile picture in the top right corner of the page, then “new repository.” It should be named username.github.io, where username is your GitHub username.\n\n>Click on “upload”. Upload all of the files you have in the “static” folder.\n\n>If any of this was confusing, have a look at the GitHub Pages wizard [[here|https://pages.github.com/]]. It will explain how to upload your content to GitHub pages in detail.\n\n>You can now go to username.github.io (https://jwhoneycutt.github.io/) in your browser. Here you go! And there’s more—you can actually use your own domain for your TiddlyWiki website, for free. See [[this tutorial |https://help.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site]] from GitHub for the very simple step-by-step instructions.\n\n>If you want to take it to the next level, you could [[use the command line to automate your website updates|https://help.github.com/en/enterprise/2.17/user/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site]], or [[deploy your website to Netlify|https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/]]. But I hope this short tutorial gave you a good idea of what you can achieve with the TiddlyWiki static website generator. Have fun!\n",
+        "title": "3. Host your TiddlyWiki on GitHub",
+        "tags": "GitHub [[TW5 as website generator]] Public",
+        "modified": "20200426200154944",
+        "modifier": "JWHoneycutt",
+        "inc": "no"
+    },
+    {
+        "created": "20200426111523447",
+        "creator": "JWHoneycutt",
+        "text": "\n<$macrocall $name=\"list-tagged-draggable\" tag={{!!title}}\nsubFilter=\"!has[draft.of]\" \nitemTemplate=\"IncTemplate\" \nemptyMessage='No tiddlers are tagged {{!!title}} '/>\n",
+        "title": "ALLeCunff",
+        "modified": "20200426200317696",
+        "modifier": "JWHoneycutt",
+        "tags": "[[Favorite teacher]] Public"
+    },
+    {
+        "created": "20200425125317770",
+        "creator": "JWHoneycutt",
+        "text": ";Mindframing\n*https://drive.google.com/file/d/1QNEKuth9fN-CQszNl1usCRa2e6PP-fD5/view\n\n;Mental models\n*https://drive.google.com/file/d/1OQJMcyE7pk1y1j2xe9Nl-25udtuuJ-1m/view\n\n;Plus minus next journal\n*https://drive.google.com/file/d/1YO5CnWez1mQONBnqhptsliIZ_hYWyHfn/view\n\n;Trilemma\n*https://drive.google.com/file/d/1J5QJgnyjim2tLkGobqZaYfypFyDR-tO-/view",
+        "title": "annelaure@nesslabs.com",
+        "tags": "Public ALLeCunff Wise",
+        "modified": "20200426201101512",
+        "modifier": "JWHoneycutt"
+    },
+    {
+        "created": "20180804121216629",
+        "creator": "JWHoneycutt",
+        "text": ";Preferred:\n*http://insidetiddlywiki.tiddlyspot.com/\n\n;Much the same content:\n*https://tiddlytools.github.io/InsideTW/\n\n<<list-tagged-draggable tag:\"EShulman\" \nsubFilter:\"!has[draft.of]!tag[done]\" \nitemTemplate:\"IncTemplate\" \nemptyMessage:\"\"\"No tiddlers are tagged \"{{!!title}}\" \"\"\">>\n\n<$list filter=\"[tag{!!title}!sort[modified]]\" template=\"IncTemplate\" >\n<$link to={{!!title}}>\n    ''<$view field=\"title\"/>''\n  </$link> - <$transclude field=\"note\"/><br>\n</$list>\n\n",
+        "title": "EShulman",
+        "tags": "[[Favorite teacher]] Person TW5 Public",
+        "tagfilter": "EShulman",
+        "modifier": "JWHoneycutt",
+        "modified": "20200426200316555",
+        "list": "[[Variables, Fields and Filters in TiddlyWiki]] [[Draggable for mobile]] [[EShulman on wikitext inside html tags]] [[EShulman set my styles]] [[EShulman styles]] [[EShulman wisdom]] [[JWH set my styles]] [[JWH styles]] TiddlyTools/Stylesheet/Shortcuts [[2018-08-04 EShulman]] [[2018-08-04 EShulman legal]]"
+    },
+    {
+        "created": "20200426110443470",
+        "creator": "JWHoneycutt",
+        "title": "Favorite teacher",
+        "modified": "20200426200347128",
+        "modifier": "JWHoneycutt",
+        "text": "\n<$macrocall $name=\"list-tagged-draggable\" tag={{!!title}}\nsubFilter=\"!has[draft.of]\" \nitemTemplate=\"IncTemplate\" \nemptyMessage='No tiddlers are tagged {{!!title}} '/>\n",
+        "tags": "Public Learn",
+        "list": "ALLeCunff EShulman FCopes"
+    },
+    {
+        "created": "20200414045350393",
+        "creator": "JWHoneycutt",
+        "text": "https://flaviocopes.com/page/list-subscribed/\n",
+        "title": "FCopes",
+        "tags": "[[Favorite teacher]] Programming Learn Public",
+        "modifier": "JWHoneycutt",
+        "modified": "20200426200317137"
+    },
+    {
+        "created": "20200425125909290",
+        "creator": "JWHoneycutt",
+        "text": ";Source document\n*https://nesslabs.com/tiddlywiki-static-website-generator\n\n;Anne-Laure Le Cunff\n*Instantly, among my new [[favorite teachers|Favorite teacher]]\n\n;\"you may want to install before you get started\"\n*[[Hyper]] (a nice looking terminal)\n*[[VS Code]] (a great code editor, other options include Atom, Sublime, and Brackets) - @@.jwh sticking to [[Atom]] for familiarity@@\n\n",
+        "title": "How to use TiddlyWiki as a static website generator in 3 steps",
+        "tags": "[[TW5 as website generator]] Static Public",
+        "modified": "20200426200450849",
+        "modifier": "JWHoneycutt",
+        "inc": "no"
+    },
+    {
+        "created": "20200425151110818",
+        "creator": "JWHoneycutt",
+        "text": "https://hyper.is/\n\nHyper version 3.0.2\n\n>;Initial load message:\n>.shadowbox \"\"\"The default interactive shell is now zsh.\nTo update your account to use zsh, please run `chsh -s /bin/zsh`.\nFor more details, please visit https://support.apple.com/kb/HT208050.\nJeffreys-MBP-2:~ jwh$ \"\"\"\n\n",
+        "title": "Hyper",
+        "modified": "20200426200153114",
+        "modifier": "JWHoneycutt",
+        "tags": "[[TW5 as website generator]] Software Terminal Public",
+        "inc": "no"
+    },
+    {
+        "created": "20200425213956483",
+        "creator": "JWHoneycutt",
+        "text": "\n;Hosting static websites?\n*https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/\n\n>;Authorized (OAuth) via GitHub\n>Authorizing will redirect to https://api.netlify.com\n\n>;Simply Push to Deploy\n>With continuous deployment, you can trigger builds by pushing to Git or via webhooks. That’s all!\n\n>;Free automatic HTTPS\n>Netlify integrates with Let‘s Encrypt and automatically provisions, distributes and renews your certificate. Secure your site or app with our true auto SSL setup for free.\n\n>;Never have to leave Terminal\n>If you live in terminal, Netlify’s command line tool will be your new best friend. You can access any Netlify feature straight from your terminal.\n",
+        "title": "Netlify",
+        "tags": "[[TW5 as website generator]] Software Public",
+        "modified": "20200426200155615",
+        "modifier": "JWHoneycutt",
+        "note": "Deployment is NOT straightforward (need help)"
+    },
+    {
+        "created": "20200128001806506",
+        "creator": "JWHoneycutt",
+        "text": "\n!!Background research on making TW5 useful as a website generator\n\n;Static Website Generators Reviewed: \n*https://www.smashingmagazine.com/2015/11/modern-static-website-generators-next-big-thing/\n\n;Jekyll, Middleman, Roots, Hugo\n\n*https://www.smashingmagazine.com/2015/11/static-website-generators-jekyll-middleman-roots-hugo-review/\n\n",
+        "title": "Static website generators",
+        "tags": "Public Programming",
+        "modifier": "JWHoneycutt",
+        "modified": "20200426201300162"
+    },
+    {
+        "created": "20200425162753937",
+        "creator": "JWHoneycutt",
+        "title": "TW5 as website generator",
+        "modified": "20200426200535302",
+        "modifier": "JWHoneycutt",
+        "text": ";.jwh Personal note: I followed [[ALLeCunff]]'s instructions, but replaced `myfirstwiki` with my personal blog `jwhPublicWiki` (using node.js) stored at file:///Users/jwh/jwhPublic\n\n<$macrocall $name=\"list-tagged-draggable\" tag={{!!title}}\nsubFilter=\"!has[draft.of]\" \nitemTemplate=\"IncTemplate\" \nemptyMessage='No tiddlers are tagged {{!!title}} '/>\n\n",
+        "tags": "Public Website Static TW5",
+        "list": "[[TW5 as website generator - constructive criticism]] [[How to use TiddlyWiki as a static website generator in 3 steps]] [[1. Install the Node.js version of TiddlyWiki]] [[2. Export your TiddlyWiki as a static website]] [[3. Host your TiddlyWiki on GitHub]] [[tiddlywiki --build static]] Netlify"
+    },
+    {
+        "created": "20200426113352337",
+        "creator": "JWHoneycutt",
+        "text": ";Terminal commands display incorrectly\n*The font used to display the terminal command instructions smashes a `- -` double dash (no space between) into a single slightly longer dash, which makes the terminal command inoperable\n\n;Single TW5.html vs. Node.js\n*I need to know the Pros and Cons of having a single TW5.html file versus deploying TW5 as a bunch of files using Node.js\n*I am particularly interested in the sustainment of a specific process ([[ALLeCunff]] calls it \"taking it to the next level\")\n\n;My ideal use case:\n*I keep (almost) all my wiki data in a growing single TW5.html file (currently over 20 Mbytes). Images and audio files are external calls. This master file contains private data as well as stuff I would like to post on my blog.\n*I would like to do all my editting and updating in this \"master wiki\" which I access via TiddlyDesktop.\n*Any tiddler that I want seen on my blog gets tagged \"Public\".\n*With as little effort as possible (after setup), I would like my personal gitHub repository to have the tiddlers (tagged Public) available for viewing. \n*Big Bonus for ability to register visitors and grant selective permission to access topics (an AirBnb treehouse in Costa Rica, a medical journal club, an entrepreneurship venture in development...)\n\n!!Link re: __[[Progress so far|TW5 as website generator]]__",
+        "title": "TW5 as website generator - constructive criticism",
+        "tags": "[[TW5 as website generator]] Public",
+        "modified": "20200426200934569",
+        "modifier": "JWHoneycutt",
+        "caption": "Constructive criticism",
+        "inc": "no",
+        "note": "Google Groups posting"
+    },
+    {
+        "created": "20200426110152559",
+        "creator": "JWHoneycutt",
+        "text": "`tiddlywiki --build static`\n\nIs this terminal command specific to TW5 as a single html file (and not a node.js grouping of files)?",
+        "title": "Terminal command: tiddlywiki --build static",
+        "tags": "[[TW5 as website generator]] [[Terminal command]] Public",
+        "modified": "20200426201017181",
+        "modifier": "JWHoneycutt",
+        "inc": "no"
+    },
+    {
+        "created": "20200202193129970",
+        "creator": "JWHoneycutt",
+        "text": "!!Installing TW5 on Node.js: \n*https://tiddlywiki.com/static/Installing%2520TiddlyWiki%2520on%2520Node.js.html\n\n;In Terminal (as of 2020-04-26)\n*`brew install node` done in past\n*`sudo npm install -g tiddlywiki` done (updates old TW5 versions)\n*`tiddlywiki --version` confirms 5.1.22 installed\n*''DO NOT USE'', (already created) `tiddlywiki jwhPublicWiki --init server`\n*`tiddlywiki jwhPublicWiki --listen`\n\n;In Browser (Google chrome)\n*Go to `http://127.0.0.1:8080/`, and I can see the Public wiki, composed from separate tiddlers (it is Node.js)\n*I have learned that when the \"save\" symbol changes from a circle-check (I am in my major all-in-one single HTML file) to a cloud-check (I am looking at a rendering of the Node.js file, and therefore not updating my big single HTML file)\n*Now I need to be careful that I do not create a version control problem, with different functionality between my big file and my much smaller Public wiki\n*This Node.js wiki is still limited to my local machine, which allows me a preview of the rendered wiki, but not truly useful from a \"distribute to anyone\" standpoint\n\n;In GitHub\n*Pick my personal repository (which I am creating into a blog): `https://jwhoneycutt.github.io` , and it autopublishes\n*Rename \"tiddlers\" subfolder to \"tiddlers_alternate\"\n*Replace the \"tiddlers\" folder with a subset of \"tiddlers_alternate\" so that I can post this to Google Groups and not distract from the message\n\n;Why should I use Node.js instead of TW5.HTML?\n*I do not know how to place the Node.js files into TiddlyDesktop\n*When I try to do this, it basically locks up my system - needing a reboot to clear the \"CSS-type page\" that loads onto my desktop and won't go away\n*To avoid having divergent instances, I need to decide whether to commit to a single TW5 file available to me on TiddlyDesktop or a Node.js file system on my root directory (that I need to smoothly integrate into my workflow somehow - \"Netlify?\")\n\n\n\n",
+        "title": "Installing TW5 on Node.js - old notes (updated)",
+        "tags": "[[TW5 as website generator]] Node.js Public",
+        "modifier": "JWHoneycutt",
+        "modified": "20200426200151888",
+        "inc": "no"
+    }
+]
